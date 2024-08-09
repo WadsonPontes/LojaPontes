@@ -7,6 +7,8 @@ import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.wadsonpontes.util.MultiFormatLocalDateDeserializer;
 
 @Entity
 @Table(name = "customer_orders")
@@ -24,7 +26,7 @@ public class CustomerOrder {
     
     @JsonProperty("registration_date")
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
+    @JsonDeserialize(using = MultiFormatLocalDateDeserializer.class)
     private LocalDate registrationDate;
     
     @JsonProperty("name")
@@ -44,7 +46,7 @@ public class CustomerOrder {
     private Double totalPrice;
     
     @JsonProperty("customer_code")
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private Long customerCode;
     
     // Construtor, getters e setters gerados pelo Lombok

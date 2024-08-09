@@ -1,10 +1,10 @@
-package com.wadsonpontes.pedidos;
+package com.wadsonpontes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PedidosApplicationTests {
+class LojaPontesApplicationTests {
 
 	@Test
 	void contextLoads() {

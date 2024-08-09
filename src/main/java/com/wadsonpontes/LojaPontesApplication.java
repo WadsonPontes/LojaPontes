@@ -1,13 +1,13 @@
-package com.wadsonpontes.pedidos;
+package com.wadsonpontes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PedidosApplication {
+public class LojaPontesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PedidosApplication.class, args);
+		SpringApplication.run(LojaPontesApplication.class, args);
 	}
 
 }

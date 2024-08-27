@@ -16,10 +16,10 @@ public class CustomerOrderController {
 
     @Autowired
     private CustomerOrderService orderService;
-
+    
     @PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-    public CustomerOrder createOrder(@RequestBody CustomerOrder order) {
-        return orderService.saveOrder(order);
+    public List<CustomerOrder> createOrders(@RequestBody List<CustomerOrder> orders) {
+        return orderService.saveOrders(orders);
     }
 
     @GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE })

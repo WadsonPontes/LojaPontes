@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,6 +39,24 @@ public class CustomerOrderService {
         order.setTotalPrice(calculateTotalPrice(order));
 
         return orderRepository.save(order);
+    }
+    
+    public List<CustomerOrder> saveOrders(List<CustomerOrder> request) {
+    	List<CustomerOrder> orders = new ArrayList<CustomerOrder>();
+    	
+    	if (request.size() == 0) {
+    		throw new IllegalArgumentException("Please submit a list with at least 1 item.");
+    	}
+    	
+    	if (request.size() > 10) {
+    		throw new IllegalArgumentException("Send a list with a maximum of 1 item.");
+    	}
+    	
+    	for (CustomerOrder order : request) {
+    		orders.add(saveOrder(order));
+    	}
+    	
+    	return orders;
     }
 
     private Double calculateTotalPrice(CustomerOrder order) {
